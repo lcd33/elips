@@ -19,13 +19,14 @@ const { sep } = path
 
 module.exports = (app) => {
   // 找到 config /目录
-  const configPath = path.resolve(app.businessPath, `.${sep}config`)
+  const configPath = path.resolve(app.baseDir, `.${sep}config`)
+
   // 获取 default.config.js 路径
   let defaultConfig = {}
   try {
     defaultConfig = require(path.resolve(configPath, `.${sep}config.default.js`))
   } catch (error) {
-    console.error("default.config.js 加载失败")
+    console.error("[exception] there is no default.config.js ")
   }
 
   // 获取 env.config.js 路径
@@ -39,8 +40,9 @@ module.exports = (app) => {
       envConfig = require(path.resolve(configPath, `.${sep}config.prod.js`))
     }
   } catch (error) {
-    console.error(`[exception] there is no config file `)
+    console.error(`[exception] there is no config file `, error)
   }
   // 覆盖并且加载
   app.config = Object.assign({}, defaultConfig, envConfig)
+  console.log("app.config", app.config)
 }

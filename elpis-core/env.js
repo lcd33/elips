@@ -10,8 +10,8 @@ module.exports = (app) => {
       return process.env._ENV === "beta"
     },
     // 是否是生产环境
-    isProdunction() {
-      return process.env._ENV === "produnction"
+    isProduction() {
+      return process.env._ENV === "prod"
     },
     // 获取当前环境
     get() {

@@ -38,34 +38,33 @@ module.exports = {
 
     // 加载中间件
     middlewareLoader(app)
-    console.log(app.middlewares)
+
     console.log(`--[start] middleware loaded --`)
     // 加载路由 schema
     routerSchemaLoader(app)
-    console.log(app.routerSchema)
+
     console.log(`--[start] router schema loaded --`)
     // 加载控制器
     controllerLoader(app)
-    console.log(app.controller)
+
     console.log(`--[start] controller loaded --`)
     // 加载配置
     configLoader(app)
-    console.log(app.config)
+
     console.log(`--[start] config loaded --`)
     // 加载服务
     serviceLoader(app)
-    console.log(app.service)
+
     console.log(`--[start] service loaded --`)
     // 加载扩展
     extendLoader(app)
-    console.log(app)
     console.log(`--[start] extend loaded --`)
     // 注册全局中间件
     try {
       require(`${app.businessPath}${sep}middleware.js`)(app)
-      console.log(`--[start] Appmiddleware loaded --`)
+      console.log(`--[start] global middleware loaded --`)
     } catch (error) {
-      console.error("[exception] Error loading middleware:")
+      console.error("[exception] Error loading middleware:", error)
     }
     // 加载路由
     routerLoader(app)

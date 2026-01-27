@@ -4,7 +4,9 @@
   "description": "daddddddddddddd",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "dev": "set _ENV='local' && nodemon index.js",
+    "prod": "set _ENV='production' && nodemon index.js",
+    "beta": "set _ENV='beta' && nodemon index.js",
     "lint": "eslint --quiet --ext .js,.vue .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
