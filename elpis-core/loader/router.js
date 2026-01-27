@@ -22,7 +22,7 @@ module.exports = (app) => {
     //    ctx.body = "hello router"
     //  })
     //}
-    require(path.resolve(file))(router, app)
+    require(path.resolve(file))(app, router)
   })
   // 路由兜底(健壮性)
   router.get("*", async (ctx, next) => {

@@ -47,5 +47,6 @@ module.exports = (app) => {
     }
   })
   // 把 controllers 挂载 app.controllers
+
   app.controller = controller
 }
