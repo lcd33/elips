@@ -72,9 +72,9 @@ module.exports = {
 
     try {
       const port = process.env.PORT || 8080
-      const host = process.env.HOST || "0.0.0.0"
+      // const host = process.env.HOST || "0.0.0.0"
       // 监听指定端口和主机
-      app.listen(port, host, () => {
+      app.listen(port, () => {
         console.log(`Server running at http://localhost:${port}`)
       })
     } catch (error) {

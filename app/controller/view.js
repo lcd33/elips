@@ -7,7 +7,11 @@ module.exports = (app) => {
      */
 
     async renderPage(ctx) {
-      await ctx.render(`output/entry.${ctx.params.page}`)
+      await ctx.render(`output/entry.${ctx.params.page}`, {
+        name: app.name,
+        env: app.env.get(),
+        options: JSON.stringify(app.options)
+      })
     }
   }
 }
